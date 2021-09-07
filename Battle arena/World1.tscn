@@ -62,3 +62,22 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1, 6, 
 
 [node name="lamp04" parent="Assets" index="3" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, 1, -1, 6, 9.16945 )
+
+[node name="Timers" type="Spatial" parent="." index="9"]
+
+[node name="Respawn1" type="Timer" parent="Timers" index="0"]
+
+[node name="Respawn2" type="Timer" parent="Timers" index="1"]
+
+[node name="Respawn3" type="Timer" parent="Timers" index="2"]
+
+[node name="Respawn4" type="Timer" parent="Timers" index="3"]
+
+[node name="Respawn5" type="Timer" parent="Timers" index="4"]
+
+[connection signal="tree_exited" from="Enemy2" to="Enemy2" method="_on_Enemy2_tree_exited"]
+[connection signal="tree_exited" from="Enemy3" to="Enemy3" method="_on_Enemy3_tree_exited"]
+[connection signal="tree_exited" from="Enemy4" to="Enemy4" method="_on_Enemy4_tree_exited"]
+[connection signal="tree_exited" from="Enemy5" to="Enemy5" method="_on_Enemy5_tree_exited"]
+[connection signal="tree_exited" from="Enemy6" to="Enemy6" method="_on_Enemy6_tree_exited"]
+[connection signal="timeout" from="Timers/Respawn1" to="Enemy2" method="_on_Respawn1_timeout"]
