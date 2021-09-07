@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/5.56-AR15-Single-Close-GunShot-F-www.fesliyanstudios.com-[AudioTrimmer.com].mp3-ed4cb1a75ffbbdc7fe2d88565e0f0537.mp3str"
+
+[deps]
+
+source_file="res://Characters/5.56-AR15-Single-Close-GunShot-F-www.fesliyanstudios.com-[AudioTrimmer.com].mp3"
+dest_files=[ "res://.import/5.56-AR15-Single-Close-GunShot-F-www.fesliyanstudios.com-[AudioTrimmer.com].mp3-ed4cb1a75ffbbdc7fe2d88565e0f0537.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

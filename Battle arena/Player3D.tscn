@@ -1,0 +1,182 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Player3D.gd" type="Script" id=1]
+[ext_resource path="res://blasterA.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hand.gd" type="Script" id=3]
+[ext_resource path="res://MachineGun.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Shotgun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ui/HUd/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://World/5.56-AR15-Single-Close-GunShot-F-www.fesliyanstudios.com.mp3" type="AudioStream" id=7]
+[ext_resource path="res://Characters/5.56-AR15-Single-Close-GunShot-F-www.fesliyanstudios.com-[AudioTrimmer.com].mp3" type="AudioStream" id=8]
+[ext_resource path="res://default_env.tres" type="Environment" id=9]
+[ext_resource path="res://Characters/Guns/Sniper/Sniper.tscn" type="PackedScene" id=10]
+[ext_resource path="res://BlasterAADS.gd" type="Script" id=11]
+[ext_resource path="res://ShotgunADS.gd" type="Script" id=12]
+[ext_resource path="res://Characters/Guns/Sniper/SniperADS.gd" type="Script" id=13]
+[ext_resource path="res://MachinegunADS.gd" type="Script" id=14]
+[ext_resource path="res://Characters/Animations/Smg Firev2.tres" type="Animation" id=15]
+[ext_resource path="res://Characters/Animations/Shotgun Fire.tres" type="Animation" id=16]
+[ext_resource path="res://Characters/Animations/Lmg Fire.tres" type="Animation" id=17]
+[ext_resource path="res://Characters/Animations/Sniper Fire.tres" type="Animation" id=18]
+[ext_resource path="res://Muzzleflash.tscn" type="PackedScene" id=19]
+[ext_resource path="res://muzzleflashshotgun.tscn" type="PackedScene" id=20]
+
+[sub_resource type="CapsuleMesh" id=1]
+radius = 0.46
+
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.46
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.4, 0.1, 0.4 )
+
+[node name="Player3D" type="KinematicBody"]
+script = ExtResource( 1 )
+fire_sound = ExtResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0483787, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Body" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="Feet" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.85547, 0 )
+shape = SubResource( 3 )
+
+[node name="Pivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0996416, 0.592437, -0.0394056 )
+
+[node name="Camera" type="Camera" parent="Pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0880003, 0, -0.152 )
+cull_mask = 1048573
+environment = ExtResource( 9 )
+fov = 90.0
+
+[node name="RayCast" type="RayCast" parent="Pivot/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114808, -0.00809085, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -200 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hand" type="Spatial" parent="Pivot/Camera"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BlasterA" type="Spatial" parent="Pivot/Camera/Hand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.302, -0.352, -0.613 )
+script = ExtResource( 11 )
+smg_default_position = Vector3( 0.302, -0.352, -0.613 )
+smg_ads_position = Vector3( 0.008, -0.233, -0.549 )
+
+[node name="blasterA" parent="Pivot/Camera/Hand/BlasterA" instance=ExtResource( 2 )]
+
+[node name="Muzzleflashsmg" parent="Pivot/Camera/Hand/BlasterA" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.145346, -0.35292 )
+
+[node name="ShotgunHand" type="Spatial" parent="Pivot/Camera/Hand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.296, -0.495, -0.681 )
+script = ExtResource( 12 )
+shotgun_ads_position = Vector3( 0.003, -0.4, -0.491 )
+shotgun_default_position = Vector3( 0.296, -0.495, -0.681 )
+
+[node name="Shotgun" parent="Pivot/Camera/Hand/ShotgunHand" instance=ExtResource( 5 )]
+
+[node name="muzzleflashshotgun" parent="Pivot/Camera/Hand/ShotgunHand" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00492474, 0.238464, -0.710183 )
+explosiveness = 0.3
+
+[node name="SniperHand" type="Spatial" parent="Pivot/Camera/Hand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.211, -0.397, -0.365 )
+script = ExtResource( 13 )
+sniper_ads_position = Vector3( 0.05, -0.303, -0.221 )
+sniper_default_position = Vector3( 0.211, -0.397, -0.365 )
+
+[node name="Sniper" parent="Pivot/Camera/Hand/SniperHand" instance=ExtResource( 10 )]
+
+[node name="muzzleflashshotgun2" parent="Pivot/Camera/Hand/SniperHand" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00489318, 0.196564, -1.30001 )
+explosiveness = 0.3
+
+[node name="LmgHand" type="Spatial" parent="Pivot/Camera/Hand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.235, -0.39, -0.947 )
+script = ExtResource( 14 )
+lmg_ads_position = Vector3( 0.005, -0.35, -0.854 )
+lmg_default_position = Vector3( 0.235, -0.39, -0.947 )
+
+[node name="MachineGun" parent="Pivot/Camera/Hand/LmgHand" instance=ExtResource( 4 )]
+transform = Transform( -1.31134e-08, -0.3, 0, 0.3, -1.31134e-08, 0, 0, 0, 0.3, 0, 0, 0 )
+
+[node name="Muzzleflashsmg2" parent="Pivot/Camera/Hand/LmgHand" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000180542, 0.242575, -0.457074 )
+
+[node name="Raycontainerforshotgun" type="Spatial" parent="Pivot/Camera/Hand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0131181, 0.00275087, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RayCast" type="RayCast" parent="Pivot/Camera/Hand/Raycontainerforshotgun"]
+enabled = true
+cast_to = Vector3( 0, 0, -20 )
+
+[node name="RayCast2" type="RayCast" parent="Pivot/Camera/Hand/Raycontainerforshotgun"]
+enabled = true
+cast_to = Vector3( 0, 0, -7 )
+
+[node name="RayCast3" type="RayCast" parent="Pivot/Camera/Hand/Raycontainerforshotgun"]
+enabled = true
+cast_to = Vector3( 0, 0, -5 )
+
+[node name="RayCast4" type="RayCast" parent="Pivot/Camera/Hand/Raycontainerforshotgun"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+
+[node name="RayCast5" type="RayCast" parent="Pivot/Camera/Hand/Raycontainerforshotgun"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+
+[node name="Unarmed" type="Spatial" parent="Pivot/Camera/Hand"]
+
+[node name="HUD" parent="Pivot/Camera" instance=ExtResource( 6 )]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Pivot/Camera"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Pivot/Camera/ViewportContainer"]
+size = Vector2( 1280, 750 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Guncam" type="Camera" parent="Pivot/Camera/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00860926, 0.591645, -0.19036 )
+cull_mask = 2
+environment = ExtResource( 9 )
+fov = 90.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Lmg Fire" = ExtResource( 17 )
+"anims/Shotgun Fire" = ExtResource( 16 )
+"anims/Smg Fire" = ExtResource( 15 )
+"anims/Smg Firev2" = ExtResource( 15 )
+"anims/Sniper Fire" = ExtResource( 18 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 7 )
+
+[node name="Smgsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+stream_paused = true

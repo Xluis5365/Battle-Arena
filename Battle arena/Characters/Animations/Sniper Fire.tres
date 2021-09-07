@@ -1,0 +1,29 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "Sniper Fire"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Camera/Hand/SniperHand/Sniper:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0.0421818 ), Vector3( 0, 0, 0.0481981 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Camera/Hand/SniperHand/Sniper:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1.888, 0, 0 ), Vector3( 1.888, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}

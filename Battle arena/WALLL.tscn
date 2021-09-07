@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Forthings.tres" type="Material" id=1]
+
+[node name="WALLL" type="CSGCombiner"]
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.50916, 0 )
+width = 0.5
+height = 5.0
+depth = 10.0
+material = ExtResource( 1 )
+
+[node name="CSGSphere" type="CSGSphere" parent="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.56537, 0 )
+operation = 2
+radius = 2.0
+rings = 12
+material = ExtResource( 1 )

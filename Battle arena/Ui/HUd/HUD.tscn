@@ -1,0 +1,198 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/BoldOpenSans.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Ui/HUd/Progressbartheme.tres" type="Theme" id=2]
+[ext_resource path="res://CrossHair (1).png" type="Texture" id=3]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = -1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -131.0
+margin_right = 611.0
+mouse_filter = 2
+color = Color( 0.113725, 0.113725, 0.113725, 0.6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthUI" type="ProgressBar" parent="ColorRect"]
+margin_left = 16.0
+margin_top = 12.0
+margin_right = 221.0
+margin_bottom = 39.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+value = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GunSlot" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -285.5
+margin_top = -81.0
+margin_right = -203.5
+margin_bottom = -4.0
+color = Color( 0.27451, 0.305882, 0.368627, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Numberslot" type="Label" parent="ColorRect/GunSlot"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GunSlot2" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.5
+margin_top = -81.0
+margin_right = -118.5
+margin_bottom = -4.0
+color = Color( 0.27451, 0.305882, 0.368627, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Numberslot" type="Label" parent="ColorRect/GunSlot2"]
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GunSlot3" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -115.5
+margin_top = -81.0
+margin_right = -33.5
+margin_bottom = -4.0
+color = Color( 0.27451, 0.305882, 0.368627, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Numberslot" type="Label" parent="ColorRect/GunSlot3"]
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GunSlot4" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -30.5
+margin_top = -81.0
+margin_right = 51.5
+margin_bottom = -4.0
+color = Color( 0.27451, 0.305882, 0.368627, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Numberslot" type="Label" parent="ColorRect/GunSlot4"]
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GunSlot5" type="ColorRect" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 54.5
+margin_top = -81.0
+margin_right = 136.5
+margin_bottom = -4.0
+rect_pivot_offset = Vector2( 265.534, -218.058 )
+color = Color( 0.27451, 0.305882, 0.368627, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Numberslot" type="Label" parent="ColorRect/GunSlot5"]
+margin_right = 40.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ammo" type="Label" parent="ColorRect"]
+margin_left = 499.447
+margin_top = 56.8121
+margin_right = 542.447
+margin_bottom = 79.8121
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = ExtResource( 1 )
+text = "25/50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponUI" type="Label" parent="ColorRect"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -140.794
+margin_top = -36.6984
+margin_right = -100.794
+margin_bottom = -13.6984
+custom_fonts/font = ExtResource( 1 )
+text = "SMG"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -20.0
+margin_right = 25.0
+margin_bottom = 20.0
+mouse_filter = 2
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

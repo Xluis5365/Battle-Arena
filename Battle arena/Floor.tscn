@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="Floor" type="StaticBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1.2022, 0, 0, 0, 0.224196, 0, 0, 0, 1.2, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1.202, 0, 0, 0, 0.224, 0, 0, 0, 1.2, 0, 0, 0 )
+shape = SubResource( 2 )
